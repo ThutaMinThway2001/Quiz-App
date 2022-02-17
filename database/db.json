@@ -13,17 +13,6 @@
         },
         {
             "id": 2,
-            "title": "This is question one." ,
-            "answer": {
-                "a": "bag",
-                "b": "car",
-                "c": "bicycle",
-                "d": "mortor car"
-            },
-            "correctAnswer": "a"
-        },
-        {
-            "id": 3,
             "title": "This is question two." ,
             "answer": {
                 "a": "bag",
@@ -34,7 +23,7 @@
             "correctAnswer": "b"
         },
         {
-            "id": 4,
+            "id": 3,
             "title": "This is question three." ,
             "answer": {
                 "a": "bag",
