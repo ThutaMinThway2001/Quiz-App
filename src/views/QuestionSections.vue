@@ -8,6 +8,9 @@
       <div class="bg-white p-12 rounded-lg shadow-lg w-full mt-8" >
         <div v-if="index < questions.length">
           <!-- title -->
+        <loading :active="isLoading" 
+        :can-cancel="true"></loading>
+
         <p class="text-2xl font-bold uppercase">
           {{questions[index]?.title}}
         </p>
@@ -51,7 +54,7 @@
           </button>
         </div>
         </div>
-        <div v-else>
+        <div v-else v-show="!isLoading">
           <h2 class="font-bold text-3xl">Result</h2>
           <div class="flex justify-start space-x-4 mt-6">
             <p>
@@ -89,11 +92,12 @@ import { ref } from '@vue/reactivity';
 import getData from '../composables/getData'
 export default {
 setup(){
+    
     let index = ref(0);
     let selectedAnswer = ref('');
     let correct = ref(0);
     let wrong = ref(0);
-    let {error, questions, fetchQuestions} = getData();
+    let {error, questions, fetchQuestions, isLoading, fullPage} = getData();
     fetchQuestions();
 
     let answered = (e) => {
@@ -122,7 +126,7 @@ setup(){
       selectedAnswer.value = ''
     }
 
-    return {fetchQuestions, questions, error, answered, selectedAnswer, index, nextQuestion, finishResult, correct, wrong, resetAnswer}
+    return {fetchQuestions, questions, error, answered, selectedAnswer, index, nextQuestion, finishResult, correct, wrong, resetAnswer, isLoading, fullPage}
   }
 }
 </script>
