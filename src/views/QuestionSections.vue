@@ -16,8 +16,7 @@
         class="block mt-4 border border-gray-300 rounded-lg py-2 px-6 text-lg" 
         v-for="(answer, key) in questions[index]?.answer" 
         :key="answer"
-        :class="
-        {'hover:bg-gray-100 cursor-pointer' : selectedAnswer == ''},
+        :class="{'hover:bg-gray-100 cursor-pointer' : selectedAnswer == ''},
         {'bg-red-400': selectedAnswer == key},
         {'bg-green-400': key == questions[index].correctAnswer && selectedAnswer != ''}"
         >
